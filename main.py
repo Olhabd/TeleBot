@@ -28,10 +28,10 @@ list_category = {
     "Outerwear": {},    
 }
 
-categories_admin = telebot.types.InlineKeyboardMarkup()
+# categories_admin = telebot.types.InlineKeyboardMarkup()
 
-for key, value in telebot.categories_admin.items():
-    categories_admin.add(telebot.types.InlineKeyboardButton)
+# for key, value in telebot.categories_admin.items():
+#     categories_admin.add(telebot.types.InlineKeyboardButton)
 
 '''
 Категории:
@@ -86,45 +86,22 @@ kb_user_orders = telebot.types.InlineKeyboardMarkup()
 #кнопки(список) категорій товару -> кнопки замовлених товарів(список)
 #інфа про замовника + замовленний товар -> кнопки(статус замовлення, особ.чат)
 
-
-
-
-keyboard_user1 = telebot.types.InlineKeyboardMarkup() 
+kb_user1 = telebot.types.InlineKeyboardMarkup() 
 btn_category = telebot.types.InlineKeyboardButton('Категорії',callback_data= 'Категорії')
 btn_wishlist = telebot.types.InlineKeyboardButton('Список бажань',callback_data= 'Список бажань')
 btn_orders = telebot.types.InlineKeyboardButton('Мої замовлення', callback_data='Мої замовлення')
-keyboard_user1.add(btn_category,btn_wishlist, btn_orders)
+kb_user1.add(btn_category,btn_wishlist, btn_orders)
 
-
-
-
-#@bot.message_handler(commands=["start"])
-#def start(message):
-    #if message.chat.id == admins:
-        #bot.send_message(admins, f'Новий клієнт: {message.from_user.id} {message.from_user.first_name}{message.from_user.last_name}', reply_markup=keyboard_admins1)
-    #else:
-        #bot.send_message(message.chat.id, 'Вітаємо Вас!', reply_markup=keyboard_user1)
-
-
-
-
-
-
-
-#@bot.message_handler(commands=["start"])
-#def start(message):
-    #if message.chat.id == admins:
-        bot.send_message(admins, f'Новий клієнт: {message.from_user.id} {message.from_user.first_name}{message.from_user.last_name}', reply_markup=k)
+@bot.message_handler(commands=["start"])
+def start(message):
+    if message.chat.id == admins:
+        bot.send_message(admins, f'Новий клієнт: {message.from_user.id} {message.from_user.first_name}{message.from_user.last_name}', reply_markup=kb_admins1)
     else:
-        keyboard = telebot.types.InlineKeyboardMarkup(row_width=1)
-        btn1 = telebot.types.InlineKeyboardButton('Продивитися категорії товару',callback_data='1')
-        btn2 = telebot.types.InlineKeyboardButton('Створити замовлення',callback_data='2')
-        btn3 = telebot.types.InlineKeyboardButton('Редагувати замовлення',callback_data='3')
-        keyboard.add(btn1,btn2,btn3)
         bot.send_message(message.chat.id,'''
-Вітаємо Вас вмагазині {Название}!
-Оберіть будь ласка функцію:
-'''
+        Вітаємо Вас в магазині одягу:{Название}!
+        Оберіть,будь ласка, подалішу дію:
+        ''', reply_markup=kb_user1)
+        bot.send_message(admins, f'Новий клієнт: {message.from_user.id} {message.from_user.first_name}{message.from_user.last_name}', reply_markup=kb_admins1)
 
 
 bot.infinity_polling()   
