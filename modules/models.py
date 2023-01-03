@@ -1,5 +1,4 @@
 from .settings import *
-from .user import *
 class User:
     def __init__(self,id, 
                 first_name=None, 
@@ -11,11 +10,16 @@ class User:
         self.username = username
         self.is_admin = False
         self.orders = [] # list with many order objects
-    def start(self):
+    def start(self, message):
         if not self.is_admin: 
             bot.send_message(message.chat.id,f'''{self.first_name}, 
             Вітаємо Вас в магазині одягу:SuperShop!
             Оберіть,будь ласка, подальшу дію:
+            ''', reply_markup=kb_user1)
+        else:
+            bot.send_message(message.chat.id,f'''Здравствуйте {self.first_name}, 
+            с магазином в ваше отсутствие все было хорошо
+            
             ''', reply_markup=kb_user1)
 
 class Admin:
@@ -52,3 +56,8 @@ class Order:
     def remove_product(self, product):
         pass
 
+users_list = []
+admin_list = []
+product_types_list = []
+orders_list = []
+product_list = []

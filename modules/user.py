@@ -1,3 +1,4 @@
+from .models import users_list
 def find_user(id):
     user = False
     for user_temp in users_list:
