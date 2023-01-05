@@ -1,7 +1,9 @@
 from modules.user import *
 from modules.models import *
 from modules.settings import *
-@bot.message_handler(commands=["start"])
+from modules.admin import *
+
+@bot.message_handler(commands=["start"]) 
 def start(message):
     user = find_user(message.chat.id)
     if user:
@@ -17,4 +19,5 @@ def start(message):
 def set_admin(message):
     user = find_user(message.chat.id)
     user.is_admin = True
+
 bot.infinity_polling()   
