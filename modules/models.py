@@ -1,4 +1,7 @@
-from .settings import *
+from modules.settings import *
+from modules.user import *
+from modules.admin import *
+
 class User:
     def __init__(self,id, 
                 first_name=None, 
@@ -8,7 +11,7 @@ class User:
         self.first_name = first_name
         self.last_name = last_name
         self.username = username
-        self.is_admin = False
+        self.is_admin = admins
         self.orders = [] # list with many order objects
     def start(self, message):
         if not self.is_admin: 
@@ -17,10 +20,10 @@ class User:
             Оберіть,будь ласка, подальшу дію:
             ''', reply_markup=kb_user1)
         else:
-            bot.send_message(message.chat.id,f'''Здравствуйте {self.first_name}, 
-            с магазином в ваше отсутствие все было хорошо
+            bot.send_message(message.chat.id,f'''Вітаємо {self.first_name}, 
+            у магазині все було гаразд, за час вашої відсутності.
             
-            ''', reply_markup=kb_user1)
+            ''', reply_markup=kb_admins1)
 
 class Admin:
     def __init__(self,id, user):
@@ -47,6 +50,7 @@ class Product:
         self.price = price
         self.photo = photo
         self.producttype = product_type
+        
 class Order:
     def __init__(self, id):
         self.id = id
