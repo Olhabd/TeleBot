@@ -15,9 +15,12 @@ def start(message):
                     message.from_user.username,)
         users_list.append(user)
         user.start(message)
-@bot.message_handler(commands='admin')
-def set_admin(message):
-    user = find_user(message.chat.id)
-    user.is_admin = True
+
+@bot.callback_query_handler(func=lambda call: True)
+def callback_query(call):
+    if call.data == 'add_category':
+        bot.send_message(call.message.chat.id, 'Введіть категорію', reply_markup = kb_add_category)
+    elif call.data == 'Додати товар':
+        bot.send_message(call.message.chat.id, 'Оберіть категоріюх',reply_markup= kb_add_good )
 
 bot.infinity_polling()   

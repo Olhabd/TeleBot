@@ -14,7 +14,7 @@ class User:
         self.is_admin = admins
         self.orders = [] # list with many order objects
     def start(self, message):
-        if not self.is_admin: 
+        if not self.is_admin:
             bot.send_message(message.chat.id,f'''{self.first_name}, 
             Вітаємо Вас в магазині одягу:SuperShop!
             Оберіть,будь ласка, подальшу дію:
@@ -23,7 +23,7 @@ class User:
             bot.send_message(message.chat.id,f'''Вітаємо {self.first_name}, 
             у магазині все було гаразд, за час вашої відсутності.
             
-            ''', reply_markup=kb_admins1)
+            ''', reply_markup= kb_admins_start)
 
 class Admin:
     def __init__(self,id, user):
@@ -36,6 +36,7 @@ class ProductType:
         self.id = id 
         self.name = name 
         self.description = description 
+    
     
 class Product:
     def __init__(self, id, 
@@ -50,6 +51,8 @@ class Product:
         self.price = price
         self.photo = photo
         self.producttype = product_type
+
+
         
 class Order:
     def __init__(self, id):
@@ -62,6 +65,6 @@ class Order:
 
 users_list = []
 admin_list = []
-product_types_list = []
+
 orders_list = []
 product_list = []
