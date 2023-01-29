@@ -23,4 +23,5 @@ def callback_query(call):
     elif call.data == 'Додати товар':
         bot.send_message(call.message.chat.id, 'Оберіть категорію',reply_markup= kb_add_good )
 
+
 bot.infinity_polling()   

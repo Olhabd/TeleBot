@@ -32,22 +32,20 @@ class Admin:
         self.user = user
     
 class ProductType:
-    def __init__(self, id, name, description):
+    def __init__(self, id, name):
         self.id = id 
         self.name = name 
-        self.description = description 
-    
+
     
 class Product:
     def __init__(self, id, 
                 name, 
-                description, 
                 price,
-                photo, 
-                product_type):
+                product_type,
+                photo = None, 
+                ):
         self.id = id
         self.name = name
-        self.description = description
         self.price = price
         self.photo = photo
         self.producttype = product_type
