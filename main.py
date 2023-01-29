@@ -1,8 +1,5 @@
 from modules.user import *
-from modules.models import *
-from modules.settings import *
 from modules.admin import *
-
 @bot.message_handler(commands=["start"]) 
 def start(message):
     user = find_user(message.chat.id)
@@ -15,7 +12,15 @@ def start(message):
                     message.from_user.username,)
         users_list.append(user)
         user.start(message)
-
+@bot.message_handler(commands=['add'])
+def add(message):
+    msg = bot.send_message(message.chat.id, 'Введіть новий товар')
+    bot.register_next_step_handler(msg,get_info_about_product_for_add)
+def get_info_about_product_for_add(message):
+    add_product(message.text)
+@bot.message_handler(commands=['products'])
+def products(message):
+    bot.send_message(message.chat.id, 'Оберіть категорію', reply_markup=view_product_types())
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
     if call.data == 'Додати категорію':

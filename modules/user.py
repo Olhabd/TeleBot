@@ -1,6 +1,6 @@
-from modules.models import *
+
 from modules.settings import *
-from modules.admin import *
+
 
 def find_user(id):
     user = False
@@ -21,17 +21,7 @@ def view_product_types():
         category = telebot.types.InlineKeyboardButton(text=category.name,
                                                 callback_data=category.id)
         kb_category.add(category)
-
-    # keyboard = types.Keyboard
-    # for category in list_category:
-    #     btn = types.Button(category.name, callback_data= category.id)
-    # keyboard.add(btn)        
-
-    # Вывод всех категррий продуктов как кнопок
-    # keyboard = types.Keyboard
-    # for category in categories:
-        # btn = types.Button(category.name, callback_data = category.id)
-        # keyboard.add(btn)
+    return kb_category
     
 
 
@@ -44,3 +34,4 @@ def view_products(cd):
     for product in product_list:
         if product.producttype == current_category:
             # bot.sendmessage Name: name 
+            pass

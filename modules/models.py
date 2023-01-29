@@ -1,6 +1,4 @@
-from modules.settings import *
-from modules.user import *
-from modules.admin import *
+
 
 class User:
     def __init__(self,id, 
@@ -63,6 +61,6 @@ class Order:
 
 users_list = []
 admin_list = []
-
+list_category = []
 orders_list = []
 product_list = []

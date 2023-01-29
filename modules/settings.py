@@ -1,10 +1,12 @@
 import telebot
-from modules.user import *
+# from user import *
 from modules.models import *
-from modules.admin import *
+
 # from modules.models import list_category
 
-bot = telebot.TeleBot('5660746331:AAEJW3cicwf76f0YVnnP_JyDy4Yzjlz4Vgo')
+# bot = telebot.TeleBot('5660746331:AAEJW3cicwf76f0YVnnP_JyDy4Yzjlz4Vgo')
+bot = telebot.TeleBot('5730146801:AAHpUbOBLYG8HQfgXjRfiitE_TOM-2ev7Ms')
+
 
 admins = [620080523]
 
@@ -21,7 +23,7 @@ kb_add_category = telebot.types.ReplyKeyboardMarkup(True)
 btn_back = telebot.types.InlineKeyboardButton('Назад', callback_data= 'Назад')
 kb_add_category.add(btn_back)
 
-list_category = []
+
 
 kb_add_good = telebot.types.ReplyKeyboardMarkup(True)
 btn_back_good = telebot.types.InlineKeyboardButton('Назад', callback_data= 'Назад')
