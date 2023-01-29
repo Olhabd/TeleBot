@@ -18,9 +18,9 @@ def start(message):
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
-    if call.data == 'add_category':
+    if call.data == 'Додати категорію':
         bot.send_message(call.message.chat.id, 'Введіть категорію', reply_markup = kb_add_category)
     elif call.data == 'Додати товар':
-        bot.send_message(call.message.chat.id, 'Оберіть категоріюх',reply_markup= kb_add_good )
+        bot.send_message(call.message.chat.id, 'Оберіть категорію',reply_markup= kb_add_good )
 
 bot.infinity_polling()   
