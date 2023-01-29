@@ -9,7 +9,7 @@ bot = telebot.TeleBot('5660746331:AAEJW3cicwf76f0YVnnP_JyDy4Yzjlz4Vgo')
 admins = [620080523]
 
 kb_admins_start = telebot.types.ReplyKeyboardMarkup(True)
-btn_add_category = telebot.types.InlineKeyboardButton('Додати категорію', callback_data = 'add_category')
+btn_add_category = telebot.types.InlineKeyboardButton('Додати категорію', callback_data = 'Додати категорію')
 btn_add_good = telebot.types.InlineKeyboardButton('Додати товар', callback_data = 'Додати товар')
 btn_edit_good = telebot.types.InlineKeyboardButton('Редагувати товар', callback_data= 'Редагувати товар')
 btn_del_good = telebot.types.InlineKeyboardButton('Видалити товар', callback_data= 'Видалити товар')
@@ -44,27 +44,27 @@ btn_back_del = telebot.types.InlineKeyboardButton('Назад', callback_data= '
 kb_edit_good.add(btn_back_del)
 for category in list_category:
     category = telebot.types.InlineKeyboardButton(text=category,
-                                            callback_data='')
+                                            callback_data=category)
     kb_del_good.add(category)
 
 users_list = []
 
 kb_user_orders = telebot.types.ReplyKeyboardMarkup(True)
-btn_back_usorders = telebot.types.InlineKeyboardButton('', callback_data= '')
+btn_back_usorders = telebot.types.InlineKeyboardButton('Назад', callback_data= 'Назад')
 kb_user_orders.add(btn_back_usorders)
 for user in users_list:
     user = telebot.types.InlineKeyboardButton(text=user,
-                                            callback_data='')
+                                            callback_data=user)
     kb_user_orders.add(user)
 
 requestes = []
 
 kb_admin_support = telebot.types.ReplyKeyboardMarkup(True)
-btn_back_support =  telebot.types.InlineKeyboardButton('', callback_data= '')
+btn_back_support =  telebot.types.InlineKeyboardButton('Назад', callback_data= 'Назад')
 kb_admin_support.add(btn_back_support)
 for request in requestes:
     request = telebot.types.InlineKeyboardButton(text=request,
-                                            callback_data='')
+                                            callback_data=request)
     kb_user_orders.add(request)
 
 kb_user1 = telebot.types.ReplyKeyboardMarkup(True)
@@ -75,32 +75,32 @@ btn_support_us = telebot.types.InlineKeyboardButton('Підтримка', callba
 kb_user1.add(btn_category,btn_wishlist, btn_orders, btn_support_us)
 
 kb_category = telebot.types.ReplyKeyboardMarkup(True)
-btn_back_us1 = telebot.types.InlineKeyboardButton('', callback_data= '')
+btn_back_us1 = telebot.types.InlineKeyboardButton('Назад', callback_data= 'Назад')
 kb_category.add(btn_back_us1)
 for category in list_category:
     category = telebot.types.InlineKeyboardButton(text=category,
-                                            callback_data='')
+                                            callback_data=category)
     kb_category.add(category)
 
 wishlist = []
 
 kb_wishlist = telebot.types.ReplyKeyboardMarkup(True)
-btn_back_category = telebot.types.InlineKeyboardButton('', callback_data= '')
+btn_back_category = telebot.types.InlineKeyboardButton('Назад', callback_data= 'Назад')
 for wish in wishlist:
     wish = telebot.types.InlineKeyboardButton(text=wish,
-                                            callback_data='')
+                                            callback_data=wish)
     kb_wishlist.add(wish)
 
 orders_list = []
 
 kb_orders = telebot.types.ReplyKeyboardMarkup(True)
-btn_back_wl = telebot.types.InlineKeyboardButton('', callback_data= '')
+btn_back_wl = telebot.types.InlineKeyboardButton('Назад', callback_data= 'Назад')
 for order in orders_list:
-    wish = telebot.types.InlineKeyboardButton(text=order,
-                                            callback_data='')
+    order = telebot.types.InlineKeyboardButton(text=order,
+                                            callback_data=order)
     kb_orders.add(order)
 
 kb_support = telebot.types.ReplyKeyboardMarkup(True)
-btn_request =  telebot.types.InlineKeyboardButton('', callback_data= '')
-btn_back_orders = telebot.types.InlineKeyboardButton('', callback_data= '')
+btn_request =  telebot.types.InlineKeyboardButton('Подати заявку', callback_data= 'Заявка')
+btn_back_orders = telebot.types.InlineKeyboardButton('Назад', callback_data= 'Назад')
 kb_support.add(btn_request,btn_back_orders)
