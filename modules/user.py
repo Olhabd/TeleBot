@@ -14,6 +14,18 @@ def find_user(id):
 
 
 def view_product_types():
+    kb_category = telebot.types.ReplyKeyboardMarkup(True)
+    btn_back_us1 = telebot.types.InlineKeyboardButton('Назад', callback_data= 'Назад')
+    kb_category.add(btn_back_us1)
+    for category in list_category:
+        category = telebot.types.InlineKeyboardButton(text=category.name,
+                                                callback_data=category.id)
+        kb_category.add(category)
+
+    # keyboard = types.Keyboard
+    # for category in list_category:
+    #     btn = types.Button(category.name, callback_data= category.id)
+    # keyboard.add(btn)        
 
     # Вывод всех категррий продуктов как кнопок
     # keyboard = types.Keyboard
@@ -25,7 +37,7 @@ def view_product_types():
 
 
 def view_products(cd):
-    for category in categories:
+    for category in list_category:
         if category.id == cd:
             current_category = category
             break
